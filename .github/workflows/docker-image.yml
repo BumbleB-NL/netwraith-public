@@ -23,12 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    
-    - name: downcase REPO
-      run: |
-        echo "REPO=${OWNER,,}" >>${GITHUB_ENV}
-      env:
-        OWNER: ${{ github.repository }}
         
     - name: Setup buildx
       uses: docker/setup-buildx-action@v1
@@ -44,7 +38,7 @@ jobs:
       id: meta
       uses: docker/metadata-action@v1
       with:
-        images: ${{ env.REGISTRY }}/${{ env.REPO }}/kismet
+        images: ${{ env.REGISTRY }}/${{ secrets.DOCKER_USER }}/kismet
 
     - name: Build and push kismet
       id: build-and-push
@@ -53,14 +47,14 @@ jobs:
         context: server/kismet
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: ${{ env.REGISTRY }}/${{ env.REPO }}/kismet:${{ env.IMAGE_TAG }} , ${{ env.REGISTRY }}/${{ env.REPO }}/kismet:latest
+        tags: ${{ env.REGISTRY }}/${{ secrets.DOCKER_USER }}/kismet:${{ env.IMAGE_TAG }} , ${{ env.REGISTRY }}/${{ secrets.DOCKER_USER }}/kismet:latest
         labels: ${{ steps.meta.output.labels }}
 
     - name: Extract docker metadata kismetbus
       id: metakismetbus
       uses: docker/metadata-action@v1
       with:
-        images: ${{ env.REGISTRY }}/${{ env.REPO }}/kismetbus
+        images: ${{ env.REGISTRY }}/${{ secrets.DOCKER_USER }}/kismetbus
 
     - name: Build and push kismetbus
       id: build-and-push-kismetbus
@@ -69,5 +63,5 @@ jobs:
         context: server/kismetbus
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: ${{ env.REGISTRY }}/${{ env.REPO }}/kismetbus:${{ env.IMAGE_TAG }} , ${{ env.REGISTRY }}/${{ env.REPO }}/kismetbus:latest
+        tags: ${{ env.REGISTRY }}/${{ secrets.DOCKER_USER }}/kismetbus:${{ env.IMAGE_TAG }} , ${{ env.REGISTRY }}/${{ secrets.DOCKER_USER }}/kismetbus:latest
         labels: ${{ steps.metakismetbus.output.labels }}
