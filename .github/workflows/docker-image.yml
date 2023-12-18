@@ -28,7 +28,7 @@ jobs:
       run: |
         echo "REPO=${OWNER,,}" >>${GITHUB_ENV}
       env:
-        OWNER: ${{ github.repository_owner }}
+        OWNER: ${{ github.repository }}
         
     - name: Setup buildx
       uses: docker/setup-buildx-action@v1
