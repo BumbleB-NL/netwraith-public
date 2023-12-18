@@ -17,11 +17,6 @@ import (
 var (
 	apiKey  = os.Getenv("KISMET_SERVER_APIKEY")
 	logPath = "/var/log/kismetbus/"
-
-	// Temporary
-	// apiKey   = "BB0E469600250E7F999EA5D7DBB7BFD5"
-	// url      = "wss://" + "10.133.0.6" + ":" + "2501" + "/eventbus/events.ws"
-	// insecure = true
 )
 
 type JsonMessage struct {
