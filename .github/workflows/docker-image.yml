@@ -71,17 +71,3 @@ jobs:
         push: true
         tags: ${{ env.REGISTRY }}/${{ env.REPO }}/kismetbus:${{ env.IMAGE_TAG }} , ${{ env.REGISTRY }}/${{ env.REPO }}/kismetbus:latest
         labels: ${{ steps.metakismetbus.output.labels }}
-
-    - name: Push kismet Image to GitHub Packages
-      uses: docker/push-action@v2
-      with:
-        context: server/kismetbus
-        push: true
-        tags: ${{ env.REGISTRY }}/${{ env.REPO }}/kismet:${{ env.IMAGE_TAG }} , ${{ env.REGISTRY }}/${{ env.REPO }}/kismet:latest
-
-    - name: Push kismetbus Image to GitHub Packages
-      uses: docker/push-action@v2
-      with:
-        context: server/kismetbus
-        push: true
-        tags: ${{ env.REGISTRY }}/${{ env.REPO }}/kismetbus:${{ env.IMAGE_TAG }} , ${{ env.REGISTRY }}/${{ env.REPO }}/kismetbus:latest
