@@ -53,7 +53,7 @@ jobs:
         context: server/kismet
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: ${{ env.REGISTRY }}/${{ env.REPO }}/kismet:${{ env.IMAGE_TAG }} , ${{ env.REGISTRY }}/${{ env.REPO }}/kismet:latest #ghcr.io/bumbleb-nl/kismet:1.0
+        tags: ${{ env.REGISTRY }}/${{ env.REPO }}/kismet:${{ env.IMAGE_TAG }} , ${{ env.REGISTRY }}/${{ env.REPO }}/kismet:latest
         labels: ${{ steps.meta.output.labels }}
 
     - name: Extract docker metadata kismetbus
@@ -69,5 +69,5 @@ jobs:
         context: server/kismetbus
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: ${{ env.REGISTRY }}/${{ env.REPO }}/kismetbus:${{ env.IMAGE_TAG }} , ${{ env.REGISTRY }}/${{ env.REPO }}/kismetbus:latest #ghcr.io/bumbleb-nl/kismetbus:1.0
+        tags: ${{ env.REGISTRY }}/${{ env.REPO }}/kismetbus:${{ env.IMAGE_TAG }} , ${{ env.REGISTRY }}/${{ env.REPO }}/kismetbus:latest
         labels: ${{ steps.metakismetbus.output.labels }}
