@@ -1,0 +1,73 @@
+name: build-containers
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: 
+    - server/kismet/**
+    - server/kismetbus/**
+  pull_request:
+    branches: [ "main" ]
+    paths: 
+    - server/kismet
+    - server/kismetbus
+
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_TAG: 1.${{ github.run_number }}
+
+jobs:
+  build-and-publish-kismet:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: downcase REPO
+      run: |
+        echo "REPO=${OWNER,,}" >>${GITHUB_ENV}
+      env:
+        OWNER: ${{ github.repository_owner }}
+        
+    - name: Setup buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Log into registry ${{ env.REGISTRY }}
+      uses: docker/login-action@v1
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.ghcr_token }}
+
+    - name: Extract docker metadata kismet
+      id: meta
+      uses: docker/metadata-action@v1
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.REPO }}/kismet
+
+    - name: Build and push kismet
+      id: build-and-push
+      uses: docker/build-push-action@v2
+      with:
+        context: server/kismet
+        platforms: linux/amd64,linux/arm64
+        push: true
+        tags: ${{ env.REGISTRY }}/${{ env.REPO }}/kismet:${{ env.IMAGE_TAG }} , ${{ env.REGISTRY }}/${{ env.REPO }}/kismet:latest #ghcr.io/bumbleb-nl/kismet:1.0
+        labels: ${{ steps.meta.output.labels }}
+
+    - name: Extract docker metadata kismetbus
+      id: metakismetbus
+      uses: docker/metadata-action@v1
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.REPO }}/kismetbus
+
+    - name: Build and push kismetbus
+      id: build-and-push-kismetbus
+      uses: docker/build-push-action@v2
+      with:
+        context: server/kismetbus
+        platforms: linux/amd64,linux/arm64
+        push: true
+        tags: ${{ env.REGISTRY }}/${{ env.REPO }}/kismetbus:${{ env.IMAGE_TAG }} , ${{ env.REGISTRY }}/${{ env.REPO }}/kismetbus:latest #ghcr.io/bumbleb-nl/kismetbus:1.0
+        labels: ${{ steps.metakismetbus.output.labels }}

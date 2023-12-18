@@ -1,0 +1,5 @@
+/server/.env
+/server/kismet/kismet_site.conf
+/drone/netwraith.env
+/server/nginx/certs/cert.crt
+/server/nginx/certs/cert.key

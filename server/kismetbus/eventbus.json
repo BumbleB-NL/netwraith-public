@@ -1,0 +1,16 @@
+{
+	"SUBSCRIBE": "ALERT",
+	"fields": [
+		"kismet.alert.header",
+		"kismet.alert.class",
+		"kismet.alert.text",
+		"kismet.alert.channel",
+		"kismet.alert.frequency",
+		"kismet.alert.phy_id",
+		"kismet.alert.severity",
+		"kismet.alert.source_mac",
+		"kismet.alert.transmitter_mac",
+		"kismet.alert.dest_mac",
+		"kismet.alert.timestamp"
+	]
+}

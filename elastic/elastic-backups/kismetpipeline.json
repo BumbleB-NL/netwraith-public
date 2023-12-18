@@ -1,0 +1,46 @@
+[
+    {
+      "json": {
+        "field": "message",
+        "add_to_root": true
+      }
+    },
+    {
+      "dot_expander": {
+        "field": "*",
+        "path": "ALERT"
+      }
+    },
+    {
+      "rename": {
+        "field": "ALERT.kismet",
+        "target_field": "kismet"
+      }
+    },
+    {
+      "remove": {
+        "field": "ALERT"
+      }
+    },
+    {
+      "set": {
+        "field": "event.ingested",
+        "copy_from": "@timestamp"
+      }
+    },
+    {
+      "set": {
+        "field": "event.kind",
+        "value": "alert"
+      }
+    },
+    {
+      "date": {
+        "field": "kismet.alert.timestamp",
+        "formats": [
+          "UNIX",
+          "UNIX_MS"
+        ]
+      }
+    }
+]

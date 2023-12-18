@@ -1,0 +1,17 @@
+# Apspoof rules (currently broken)
+apspoof=homenet:ssid="ThePromisedLAN",validmacs="7E:8B:CA:F6:E9:AA"
+
+# Server name and description
+server_name=Netwraith
+server_description=Netwraith
+server_location=Somewhere
+
+# Disable the SSH remote capture (Doesn't affect the websocket remote capture)
+remote_capture_enabled=false
+
+# Log titles and folder
+log_prefix=/home/netwraith/.kismet/logs
+#log_prefix=/var/log/kismet
+log_title=Netwraith
+
+# !!! Last line isn't read properly leave this comment!!!

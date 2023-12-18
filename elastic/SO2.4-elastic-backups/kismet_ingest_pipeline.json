@@ -1,0 +1,44 @@
+{
+    "processors": [{
+            "json": {
+                "field": "message",
+                "add_to_root": true
+            }
+        },
+        {
+            "dot_expander": {
+                "field": "*",
+                "path": "MESSAGE"
+            }
+        },
+        {
+            "rename": {
+                "field": "MESSAGE.kismet.messagebus",
+                "target_field": "kismet"
+            }
+        },
+        {
+            "remove": {
+                "field": "message",
+                "description": "Remove \"message\""
+            }
+        },
+        {
+            "remove": {
+                "field": "MESSAGE"
+            }
+        },
+        {
+            "set": {
+                "field": "event.dataset",
+                "value": "alert"
+            }
+        },
+        {
+            "set": {
+                "field": "event.module",
+                "value": "kismet"
+            }
+        }
+    ]
+}

@@ -1,0 +1,212 @@
+{
+    "_index": ".ds-logs-generic-default-2023.11.17-000001",
+    "_id": "9GBM8osBtDkY35G5Fpix",
+    "_version": 1,
+    "_score": 0,
+    "_source": {
+      "agent": {
+        "name": "2c10c3700c7d",
+        "id": "e350cfb6-9e5b-4849-8eec-5ca0d3a827d4",
+        "ephemeral_id": "a27fa9f8-1bb0-4daf-835d-51b5d1304bf7",
+        "type": "filebeat",
+        "version": "8.2.2"
+      },
+      "metadata": {
+        "input": {
+          "beats": {
+            "host": {
+              "ip": "192.168.20.112"
+            }
+          }
+        },
+        "raw_index": "logs-generic-default",
+        "beat": "filebeat",
+        "type": "_doc",
+        "version": "8.2.2"
+      },
+      "log": {
+        "file": {
+          "path": "/var/log/kismetbus/2023-11-21-message.log"
+        },
+        "offset": 130504
+      },
+      "elastic_agent": {
+        "id": "e350cfb6-9e5b-4849-8eec-5ca0d3a827d4",
+        "version": "8.2.2",
+        "snapshot": false
+      },
+      "message": "{\"MESSAGE\": {\"kismet.messagebus.message_string\": \"Detected new 802.11 Wi-Fi device 6A:D9:79:86:51:6A\",\"kismet.messagebus.message_flags\": 2,\"kismet.messagebus.message_time\": 1700577147}}",
+      "tags": [
+        "elastic-agent",
+        "input-cfnc-netwraith-manager01",
+        "beats_input_codec_plain_applied"
+      ],
+      "input": {
+        "type": "log"
+      },
+      "@timestamp": "2023-11-21T14:32:29.598Z",
+      "ecs": {
+        "version": "8.0.0"
+      },
+      "data_stream": {
+        "namespace": "default",
+        "type": "logs",
+        "dataset": "generic"
+      },
+      "@version": "1",
+      "host": {
+        "hostname": "2c10c3700c7d",
+        "os": {
+          "kernel": "5.10.16.3-microsoft-standard-WSL2",
+          "codename": "focal",
+          "name": "Ubuntu",
+          "type": "linux",
+          "family": "debian",
+          "version": "20.04.4 LTS (Focal Fossa)",
+          "platform": "ubuntu"
+        },
+        "ip": [
+          "172.31.0.3"
+        ],
+        "containerized": true,
+        "name": "2c10c3700c7d",
+        "mac": [
+          "02:42:ac:1f:00:03"
+        ],
+        "architecture": "x86_64"
+      },
+      "event": {
+        "agent_id_status": "auth_metadata_missing",
+        "ingested": "2023-11-21T14:32:34Z",
+        "module": "elastic_agent",
+        "dataset": "generic"
+      }
+    },
+    "fields": {
+      "elastic_agent.version": [
+        "8.2.2"
+      ],
+      "host.hostname": [
+        "2c10c3700c7d"
+      ],
+      "host.mac": [
+        "02:42:ac:1f:00:03"
+      ],
+      "host.ip": [
+        "172.31.0.3"
+      ],
+      "agent.type": [
+        "filebeat"
+      ],
+      "event.module": [
+        "elastic_agent"
+      ],
+      "host.os.version": [
+        "20.04.4 LTS (Focal Fossa)"
+      ],
+      "host.os.kernel": [
+        "5.10.16.3-microsoft-standard-WSL2"
+      ],
+      "@version": [
+        "1"
+      ],
+      "host.os.name": [
+        "Ubuntu"
+      ],
+      "agent.name": [
+        "2c10c3700c7d"
+      ],
+      "elastic_agent.snapshot": [
+        false
+      ],
+      "host.name": [
+        "2c10c3700c7d"
+      ],
+      "metadata.raw_index": [
+        "logs-generic-default"
+      ],
+      "event.agent_id_status": [
+        "auth_metadata_missing"
+      ],
+      "metadata.type": [
+        "_doc"
+      ],
+      "metadata.beat": [
+        "filebeat"
+      ],
+      "host.os.type": [
+        "linux"
+      ],
+      "elastic_agent.id": [
+        "e350cfb6-9e5b-4849-8eec-5ca0d3a827d4"
+      ],
+      "metadata.input.beats.host.ip": [
+        "192.168.20.112"
+      ],
+      "data_stream.namespace": [
+        "default"
+      ],
+      "metadata.version": [
+        "8.2.2"
+      ],
+      "host.os.codename": [
+        "focal"
+      ],
+      "input.type": [
+        "log"
+      ],
+      "log.offset": [
+        130504
+      ],
+      "message": [
+        "{\"MESSAGE\": {\"kismet.messagebus.message_string\": \"Detected new 802.11 Wi-Fi device 6A:D9:79:86:51:6A\",\"kismet.messagebus.message_flags\": 2,\"kismet.messagebus.message_time\": 1700577147}}"
+      ],
+      "data_stream.type": [
+        "logs"
+      ],
+      "tags": [
+        "elastic-agent",
+        "input-cfnc-netwraith-manager01",
+        "beats_input_codec_plain_applied"
+      ],
+      "host.architecture": [
+        "x86_64"
+      ],
+      "event.ingested": [
+        "2023-11-21T14:32:34.000Z"
+      ],
+      "@timestamp": [
+        "2023-11-21T14:32:29.598Z"
+      ],
+      "agent.id": [
+        "e350cfb6-9e5b-4849-8eec-5ca0d3a827d4"
+      ],
+      "ecs.version": [
+        "8.0.0"
+      ],
+      "host.os.platform": [
+        "ubuntu"
+      ],
+      "host.containerized": [
+        true
+      ],
+      "log.file.path": [
+        "/var/log/kismetbus/2023-11-21-message.log"
+      ],
+      "data_stream.dataset": [
+        "generic"
+      ],
+      "agent.ephemeral_id": [
+        "a27fa9f8-1bb0-4daf-835d-51b5d1304bf7"
+      ],
+      "agent.version": [
+        "8.2.2"
+      ],
+      "host.os.family": [
+        "debian"
+      ],
+      "event.dataset": [
+        "generic"
+      ]
+    }
+  }

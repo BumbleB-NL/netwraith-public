@@ -1,0 +1,63 @@
+services:
+  kismetbus:
+    image: ghcr.io/bumbleb-nl/kismetbus
+    environment:
+    - KISMET_SERVER_ADDRESS=kismet_server
+    - KISMET_SERVER_PORT=2501
+    - KISMET_SERVER_APIKEY=${KISMET_SERVER_APIKEY}
+    - KISMET_SERVER_INSECURE=true
+    - KISMET_SERVER_SSL=false
+    volumes:
+    - kismetbus_data:/var/log/kismetbus
+    networks:
+      kismet:
+    depends_on:
+    - kismet_server
+    - proxy
+    restart: always
+
+  elasic-agent:
+    image: docker.elastic.co/beats/elastic-agent:8.11.1
+    user: root
+    uts: host
+    container_name: elastic-agent
+    environment:
+    - FLEET_ENROLLMENT_TOKEN=${FLEET_ENROLLMENT_TOKEN}
+    - FLEET_ENROLL=1
+    - FLEET_URL=${FLEET_URL}
+    - FLEET_INSECURE=${FLEET_INSECURE}
+    volumes:
+    - kismetbus_data:/var/log/kismetbus
+    - elasticagent_data:/usr/share/elastic-agent/state
+    depends_on:
+    - kismet_server
+    - proxy
+    - kismetbus
+    restart: always
+
+  proxy:
+    image: nginx:1.25.2
+    volumes:
+    - ./nginx/conf.d:/etc/nginx/conf.d
+    - ./nginx/certs:/etc/nginx/certs
+    ports: 
+    - 2501:2501
+    networks:
+      kismet:
+    restart: always
+
+  kismet_server:
+    image: ghcr.io/bumbleb-nl/kismet
+    volumes:
+    - ./kismet/kismet_site.conf:/etc/kismet/kismet_site.conf
+    - kismet_data:/home/netwraith/.kismet
+    networks:
+      kismet:
+    restart: always
+  
+networks:
+  kismet:
+volumes:
+  kismet_data:
+  kismetbus_data:
+  elasticagent_data:

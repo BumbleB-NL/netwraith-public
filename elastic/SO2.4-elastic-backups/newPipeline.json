@@ -1,0 +1,33 @@
+[
+  {
+    "json": {
+      "field": "message",
+      "add_to_root": true
+    }
+  },
+  {
+    "dot_expander": {
+      "field": "*",
+      "path": "ALERT"
+    }
+  },
+  {
+    "rename": {
+      "field": "ALERT.kismet",
+      "target_field": "kismet"
+    }
+  },
+  {
+    "remove": {
+      "field": "ALERT"
+    }
+  },
+  {
+    "date": {
+      "field": "kismet.alert.timestamp",
+      "formats": [
+        "UNIX"
+      ]
+    }
+  }
+]

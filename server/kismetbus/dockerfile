@@ -1,0 +1,11 @@
+ARG ARCH=
+FROM ${ARCH}golang:1.20 AS build
+WORKDIR /kismetbus
+COPY ./ ./
+RUN go mod download
+RUN go build -o kismetbus .
+
+FROM ubuntu:22.04
+COPY --from=build /kismetbus/kismetbus /usr/local/bin
+COPY --from=build /kismetbus/eventbus.json /etc/kismetbus/eventbus.json
+CMD ["kismetbus"]

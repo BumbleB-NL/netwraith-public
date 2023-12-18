@@ -1,0 +1,153 @@
+id: 70602ef0-9445-11ee-b4f8-6d1e4b5002e5
+revision: 8
+outputs:
+  default:
+    type: elasticsearch
+    ssl.verification_mode: certificate
+    hosts:
+      - 'https://192.168.20.193:9200'
+    ssl.ca_trusted_fingerprint: 9CC8812A07407F38D118406D2EB5E4EC8FBC3E5065947BF3D45371532F33B538
+fleet:
+  hosts:
+    - 'https://192.168.20.193:8220'
+    - 'https://10.155.1.3:8220'
+output_permissions:
+  default:
+    _elastic_agent_monitoring:
+      indices:
+        - names:
+            - logs-elastic_agent.apm_server-default
+          privileges: &ref_0
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-elastic_agent.apm_server-default
+          privileges: *ref_0
+        - names:
+            - logs-elastic_agent.auditbeat-default
+          privileges: *ref_0
+        - names:
+            - metrics-elastic_agent.auditbeat-default
+          privileges: *ref_0
+        - names:
+            - logs-elastic_agent.cloud_defend-default
+          privileges: *ref_0
+        - names:
+            - logs-elastic_agent.cloudbeat-default
+          privileges: *ref_0
+        - names:
+            - metrics-elastic_agent.cloudbeat-default
+          privileges: *ref_0
+        - names:
+            - logs-elastic_agent-default
+          privileges: *ref_0
+        - names:
+            - metrics-elastic_agent.elastic_agent-default
+          privileges: *ref_0
+        - names:
+            - metrics-elastic_agent.endpoint_security-default
+          privileges: *ref_0
+        - names:
+            - logs-elastic_agent.endpoint_security-default
+          privileges: *ref_0
+        - names:
+            - logs-elastic_agent.filebeat_input-default
+          privileges: *ref_0
+        - names:
+            - metrics-elastic_agent.filebeat_input-default
+          privileges: *ref_0
+        - names:
+            - logs-elastic_agent.filebeat-default
+          privileges: *ref_0
+        - names:
+            - metrics-elastic_agent.filebeat-default
+          privileges: *ref_0
+        - names:
+            - logs-elastic_agent.fleet_server-default
+          privileges: *ref_0
+        - names:
+            - metrics-elastic_agent.fleet_server-default
+          privileges: *ref_0
+        - names:
+            - logs-elastic_agent.heartbeat-default
+          privileges: *ref_0
+        - names:
+            - metrics-elastic_agent.heartbeat-default
+          privileges: *ref_0
+        - names:
+            - logs-elastic_agent.metricbeat-default
+          privileges: *ref_0
+        - names:
+            - metrics-elastic_agent.metricbeat-default
+          privileges: *ref_0
+        - names:
+            - logs-elastic_agent.osquerybeat-default
+          privileges: *ref_0
+        - names:
+            - metrics-elastic_agent.osquerybeat-default
+          privileges: *ref_0
+        - names:
+            - logs-elastic_agent.packetbeat-default
+          privileges: *ref_0
+        - names:
+            - metrics-elastic_agent.packetbeat-default
+          privileges: *ref_0
+        - names:
+            - logs-elastic_agent.pf_elastic_collector-default
+          privileges: *ref_0
+        - names:
+            - logs-elastic_agent.pf_elastic_symbolizer-default
+          privileges: *ref_0
+        - names:
+            - logs-elastic_agent.pf_host_agent-default
+          privileges: *ref_0
+    _elastic_agent_checks:
+      cluster:
+        - monitor
+    1f726be9-4278-495d-bbb2-84eac92466ae:
+      indices:
+        - names:
+            - logs-*-*
+          privileges: *ref_0
+agent:
+  download:
+    sourceURI: 'https://artifacts.elastic.co/downloads/'
+  monitoring:
+    enabled: true
+    use_output: default
+    namespace: default
+    logs: true
+    metrics: true
+  features: {}
+  protection:
+    enabled: false
+    uninstall_token_hash: if6/1HG9ojCgUVKv2tH2KwmzyBHXmp3qVo3hkSC4KFI=
+    signing_key: >-
+      MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEKhjWw9iu5wG9ztidgytYCK1lLEqF+w4lkpmf2B3P09HUi+fUthmPgszQwIh4I85T4srxVnHTOsRGDWX03zFC6Q==
+inputs:
+  - id: logfile-logs-1f726be9-4278-495d-bbb2-84eac92466ae
+    name: kismet
+    revision: 1
+    type: logfile
+    use_output: default
+    meta:
+      package:
+        name: log
+        version: 2.3.0
+    data_stream:
+      namespace: default
+    package_policy_id: 1f726be9-4278-495d-bbb2-84eac92466ae
+    streams:
+      - id: logfile-log.logs-1f726be9-4278-495d-bbb2-84eac92466ae
+        data_stream:
+          dataset: kismet
+        paths:
+          - /var/log/kismetbus/*
+        ignore_older: 72h
+        pipeline: kismet
+signed:
+  data: >-
+    eyJpZCI6IjcwNjAyZWYwLTk0NDUtMTFlZS1iNGY4LTZkMWU0YjUwMDJlNSIsImFnZW50Ijp7ImZlYXR1cmVzIjp7fSwicHJvdGVjdGlvbiI6eyJlbmFibGVkIjpmYWxzZSwidW5pbnN0YWxsX3Rva2VuX2hhc2giOiJpZjYvMUhHOW9qQ2dVVkt2MnRIMkt3bXp5QkhYbXAzcVZvM2hrU0M0S0ZJPSIsInNpZ25pbmdfa2V5IjoiTUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJemowREFRY0RRZ0FFS2hqV3c5aXU1d0c5enRpZGd5dFlDSzFsTEVxRit3NGxrcG1mMkIzUDA5SFVpK2ZVdGhtUGdzelF3SWg0STg1VDRzcnhWbkhUT3NSR0RXWDAzekZDNlE9PSJ9fSwiaW5wdXRzIjpbeyJpZCI6ImxvZ2ZpbGUtbG9ncy0xZjcyNmJlOS00Mjc4LTQ5NWQtYmJiMi04NGVhYzkyNDY2YWUiLCJuYW1lIjoia2lzbWV0IiwicmV2aXNpb24iOjEsInR5cGUiOiJsb2dmaWxlIn1dfQ==
+  signature: >-
+    MEQCIDbas82ct6K0LmxWbSPKAP2JhKuoG1kLYHf/mkwUYWUBAiBS0sXbOf+2patAX0gqy3Xl4gcPczhB2dctdBX6rBpfqg==
+secret_references: []

@@ -1,0 +1,16 @@
+[Unit]
+Description=Kismet drone remote capture to central server
+After=network.target network-online.target
+Wants=network.target network-online.target
+
+[Service]
+User=netwraith
+Group=kismet
+WorkingDirectory=/home/netwraith
+EnvironmentFile=/home/netwraith/netwraith.env
+ExecStart=kismet_cap_linux_wifi --connect=${HIVE_HOSTNAME}:${HIVE_PORT} --disable-retry --ssl --ssl-certificate=${DRONE_SSL_CERT_PATH} --apikey=${HIVE_API_KEY} --source=${DRONE_CAPTURE_SOURCE}:name="%H"
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
