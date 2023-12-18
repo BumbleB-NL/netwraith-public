@@ -38,7 +38,7 @@ jobs:
       with:
         registry: ${{ env.REGISTRY }}
         username: ${{ github.actor }}
-        password: ${{ secrets.ghcr_token }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Extract docker metadata kismet
       id: meta
