@@ -1,6 +1,6 @@
 services:
   kismetbus:
-    image: ghcr.io/bumbleb-nl/kismetbus
+    image: docker.io/bumblebnl/kismetbus
     environment:
     - KISMET_SERVER_ADDRESS=kismet_server
     - KISMET_SERVER_PORT=2501
@@ -47,7 +47,7 @@ services:
     restart: always
 
   kismet_server:
-    image: ghcr.io/bumbleb-nl/kismet
+    image: docker.io/bumblebnl/kismet
     volumes:
     - ./kismet/kismet_site.conf:/etc/kismet/kismet_site.conf
     - kismet_data:/home/netwraith/.kismet
