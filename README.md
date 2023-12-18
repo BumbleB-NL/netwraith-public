@@ -145,7 +145,7 @@ cp ~/NetWraith/drone/netwraith.env.example ./netwraith.env
 
 Make sure to copy the `cert.crt` file that was generated earlier to the home folder on the Kismet drone:
 ```bash
-scp <user>@<docker-host>:~/NetWraith/server/nginx/certs/cert.crt ~/
+scp <user>@<docker-host>:~/NetWraith/server/nginx/certs/cert.crt ~/cert.crt
 ```
 
 Edit the following variables in the netwraith.env file:
