@@ -149,11 +149,11 @@ scp <user>@<docker-host>:~/NetWraith/server/nginx/certs/cert.crt ~/cert.crt
 ```
 
 Edit the following variables in the netwraith.env file:
-`HIVE_HOSTNAME`: make sure this is the same as the `CN` used when generating the certificate files.
-`HIVE_PORT`: the port the nginx proxy uses.
-`HIVE_API_KEY`: the `datasource` api key generated earlier.
-`DRONE_SSL_CERT_PATH`: path where the `cert.crt` file is found.
-`DRONE_CAPTURE_SOURCE`: the name of the wireless adapter Kismet should use for capturing (usually wlan1).
+- `HIVE_HOSTNAME`: make sure this is the same as the `CN` used when generating the certificate files.
+- `HIVE_PORT`: the port the nginx proxy uses.
+- `HIVE_API_KEY`: the `datasource` api key generated earlier.
+- `DRONE_SSL_CERT_PATH`: path where the `cert.crt` file is found.
+- `DRONE_CAPTURE_SOURCE`: the name of the wireless adapter Kismet should use for capturing (usually wlan1).
 
 Make sure the hostname is mapped to the dockerhosts ip address:
 ```bash
