@@ -127,7 +127,7 @@ sudo apt upgrade -y
 wget -O - https://www.kismetwireless.net/repos/kismet-release.gpg.key --quiet | gpg --dearmor | sudo tee /usr/share/keyrings/kismet-archive-keyring.gpg >/dev/null
 echo 'deb [signed-by=/usr/share/keyrings/kismet-archive-keyring.gpg] https://www.kismetwireless.net/repos/apt/release/bookworm bookworm main' | sudo tee /etc/apt/sources.list.d/kismet.list >/dev/null
 apt update -y
-sudo apt install -y kismet-capture-linux-wifi ufw netcat-openbsd
+sudo apt install -y kismet-capture-linux-wifi ufw
 ```
 
 Enable firewall and allow ssh (to not lock yourself out):
