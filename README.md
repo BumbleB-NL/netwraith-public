@@ -1,4 +1,4 @@
-<img src="images/Logo.png" width="100" height="100">
+<img src="images/Logo.png" width="250" height="250">
 
 # NetWraith 
 -- Wireless intrusion detection using Kismet and ELK Stack or Security Onion 2.4
