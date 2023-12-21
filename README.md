@@ -1,4 +1,4 @@
-![Logo](images/Logo.png)
+<img src="images/Logo.png" width="100" height="100">
 # NetWraith -- Wireless intrusion detection using Kismet and ELK Stack or Security Onion 2.4
 NetWraith is a project that aims to integrate the WIDS functionality of Kismet into Elastic. Every component is containerized apart from the kismet drones and uses a mix of custom built containers and prebuilt containers. Netwraith is meant to be installed alongside an existing wireless network and should not require any modifications to the existing network other than making sure the new components can access each other and the internet.
 
