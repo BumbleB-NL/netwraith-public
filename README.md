@@ -59,7 +59,7 @@ Installed using https://github.com/peasead/elastic-container. This comes down to
 To later be able to link the agent to the server an agent policy will need to be created containing a custom logs integration. This integration can be configured alongside the agent policy as found in `/elastic/elastic-backups/elastic-agent.yml`.
 
 ### Pipeline
-An ingest pipeline will need to be created using the config found in `elastic\elastic-backups/kismetpipeline.json`. 
+An ingest pipeline will need to be created using dev tools: `elastic\elastic-backups/kismetpipeline.json`. 
 
 ### Component template
 Create a component template using dev tools: `elastic/elastic-backups/kismetcomponenttemplate.json`.
