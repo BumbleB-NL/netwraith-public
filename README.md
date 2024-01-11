@@ -62,16 +62,16 @@ To later be able to link the agent to the server an agent policy will need to be
 An ingest pipeline will need to be created using the config found in `elastic\elastic-backups/kismetpipeline.json`. 
 
 ### Component template
-Create a component template using: `elastic/elastic-backups/kismetcomponenttemplate.json`.
+Create a component template using dev tools: `elastic/elastic-backups/kismetcomponenttemplate.json`.
 
 ### Index template
-Create and index template using: `elastic/elastic-backups/kismetindextemplate.json`.
+Create and index template using dev tools: `elastic/elastic-backups/kismetindextemplate.json`.
 
 ### Alerting rules
 Create a new rule and import: `elastic/elastic-backups/rules_export.ndjson`.
 
 ### Dashboard
-Import the following dashboard: `elastic/elastic-backups/dashboardwids.ndjson`.
+Import the following dashboard under objects: `elastic/elastic-backups/dashboardwids.ndjson`.
 
 ## Kismet docker stack
 ### Clone repository to docker host
