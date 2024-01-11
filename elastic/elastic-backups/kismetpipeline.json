@@ -1,4 +1,7 @@
-[
+PUT _ingest/pipeline/kismet
+{
+  "description" : "kismet ingest",
+  "processors" : [
     {
       "json": {
         "field": "message",
@@ -44,3 +47,4 @@
       }
     }
 ]
+}
