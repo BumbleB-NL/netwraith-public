@@ -56,7 +56,7 @@ The idea is to be able to run multiple kismet servers, one per location, that ea
 Installed using https://github.com/peasead/elastic-container. This comes down to having Elasticsearch, Kibana and Fleet.
 
 ### Integration/agent policy
-To later be able to link the agent to the server an agent policy will need to be created containing a custom logs integration. This integration can be imported alongside the agent policy found in `/elastic/elastic-backups/elastic-agent.yml`.
+To later be able to link the agent to the server an agent policy will need to be created containing a custom logs integration. This integration can be configured alongside the agent policy as found in `/elastic/elastic-backups/elastic-agent.yml`.
 
 ### Pipeline
 An ingest pipeline will need to be created using the config found in `elastic\elastic-backups/kismetpipeline.json`. 
